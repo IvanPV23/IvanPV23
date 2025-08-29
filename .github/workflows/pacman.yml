@@ -2,7 +2,7 @@ name: Generate Pacman Animation
 
 on:
   schedule:
-    - cron: "0 */12 * * *"  # Cada 12 horas (corregido)
+    - cron: "0 */12 * * *"  # Cada 12 horas a la hora en punto
   workflow_dispatch:
   push:
     branches: [main]
@@ -17,17 +17,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Pacman SVG
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
-          output: ./pacman-contribution-graph.svg  # ← Ruta corregida
+          # github_token: ${{ secrets.GITHUB_TOKEN }}  # Opcional si hay problemas de rate limit
+
+      - name: Move SVG to root directory
+        run: |
+          mv pacman-contribution-graph.svg ./ || echo "SVG file not found"
 
       - name: Commit and push SVG
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add pacman-contribution-graph.svg
-          git commit -m "Update Pacman animation" || echo "No changes to commit"
+          git commit -m "Update Pacman animation [skip ci]" || echo "No changes to commit"
           git push
