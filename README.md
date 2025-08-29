@@ -57,13 +57,3 @@
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=IvanPV23&locale=en&hide_title=true&layout=compact&card_width=320&langs_count=7&theme=dracula&hide_border=true&order=2" height="150" alt="languages graph"  />
 </div>
-
-###
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/IvanPV23/IvanPV23/main/pacman-contribution-graph.svg?sanitize=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/IvanPV23/IvanPV23/main/pacman-contribution-graph.svg?sanitize=true">
-  <img alt="Pacman eating contributions" src="https://raw.githubusercontent.com/IvanPV23/IvanPV23/main/pacman-contribution-graph.svg?sanitize=true" width="100%">
-</picture>
-
-###
